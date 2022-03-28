@@ -9,6 +9,7 @@ namespace Battleship_State_Tracker.Models
 
         public int TurnNumber { get; set; } = 0;
 
+        /* This could be an enum */
         public RoomStatus? RoomStatus { get; set; }
 
         public List<Player>? PlayerList { get; set; }
