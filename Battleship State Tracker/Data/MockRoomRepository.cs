@@ -21,12 +21,6 @@ namespace Battleship_State_Tracker.Data
             throw new NotImplementedException();
         }
 
-        public Task<Room> CreateRoom(Room newRoom)
-        {
-            var room = mockRooms.First();
-            return Task.FromResult(room);
-        }
-
         public Task<IEnumerable<Room>> GetAllOpenRooms()
         {
             IEnumerable<Room> rooms = mockRooms.FindAll((room => room.RoomStatus != null && room.RoomStatus.Status == "Open"));
@@ -44,6 +38,21 @@ namespace Battleship_State_Tracker.Data
         }
 
         public Task PlayerLeavesRoom(Player player)
+        {
+            throw new NotImplementedException();
+        }
+
+        Task<Room> IRoomRepository.CreateRoom(Player roomCreator)
+        {
+            throw new NotImplementedException();
+        }
+
+        IEnumerable<Room> IRoomRepository.GetAllOpenRooms()
+        {
+            throw new NotImplementedException();
+        }
+
+        Task<Room> IRoomRepository.PlayerJoinsRoom(Room room, Player player)
         {
             throw new NotImplementedException();
         }

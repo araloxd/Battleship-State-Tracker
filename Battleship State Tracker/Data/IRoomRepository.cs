@@ -5,10 +5,10 @@ namespace Battleship_State_Tracker.Data
     public interface IRoomRepository
     {
         Task<Room> GetRoomById(int id);
-        Task<Room> CreateRoom(Room newRoom);
+        Task<Room> CreateRoom(Player roomCreator);
         Task CloseRoom();
-        Task PlayerJoinsRoom(Player player);
+        Task<Room> PlayerJoinsRoom(Room room, Player player);
         Task PlayerLeavesRoom(Player player);
-        Task<IEnumerable<Room>> GetAllOpenRooms();
+        IEnumerable<Room> GetAllOpenRooms();
     }
 }
