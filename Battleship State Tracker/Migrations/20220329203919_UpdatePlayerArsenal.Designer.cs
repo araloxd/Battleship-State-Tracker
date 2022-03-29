@@ -4,6 +4,7 @@ using Battleship_State_Tracker.Context;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Battleship_State_Tracker.Migrations
 {
     [DbContext(typeof(BattleshipContext))]
-    partial class BattleshipContextModelSnapshot : ModelSnapshot
+    [Migration("20220329203919_UpdatePlayerArsenal")]
+    partial class UpdatePlayerArsenal
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

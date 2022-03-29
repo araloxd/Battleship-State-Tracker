@@ -1,5 +1,6 @@
 ﻿using Battleship_State_Tracker.Data;
 using Battleship_State_Tracker.Models;
+using Battleship_State_Tracker.Services;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Battleship_State_Tracker.Controller
@@ -10,8 +11,9 @@ namespace Battleship_State_Tracker.Controller
     {
         private readonly IRoomRepository _roomRepository;
         private readonly PlayersController _playersController;
+        private readonly GameLogicService _gameLogicService;
 
-        public RoomsController(IRoomRepository roomRepository, PlayersController playerController)
+        public RoomsController(IRoomRepository roomRepository, PlayersController playerController, GameLogicService gameLogicService)
         {
             this._roomRepository = roomRepository;
             this._playersController = playerController;

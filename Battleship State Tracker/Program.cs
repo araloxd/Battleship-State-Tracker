@@ -1,5 +1,6 @@
 using Battleship_State_Tracker.Context;
 using Battleship_State_Tracker.Data;
+using Battleship_State_Tracker.Services;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.OpenApi.Models;
 
@@ -14,6 +15,8 @@ builder.Services.AddMvc().AddControllersAsServices();
 builder.Services.AddDbContext<BattleshipContext>(opt => opt.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 builder.Services.AddScoped<IRoomRepository, RoomRepository>();
 builder.Services.AddScoped<IPlayerRepository, PlayerRepository>();
+builder.Services.AddScoped<IBoardRepository, BoardRepository>();
+builder.Services.AddSingleton<GameLogicService>();
 #endregion
 
 #region Swagger-UI

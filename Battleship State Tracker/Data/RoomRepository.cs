@@ -1,16 +1,19 @@
 ﻿using Battleship_State_Tracker.Context;
 using Battleship_State_Tracker.Exceptions;
 using Battleship_State_Tracker.Models;
+using Battleship_State_Tracker.Services;
 
 namespace Battleship_State_Tracker.Data
 {
     public class RoomRepository : IRoomRepository
     {
         private readonly BattleshipContext _battleshipContext;
+        private readonly GameLogicService _gameLogicService;
 
-        public RoomRepository(BattleshipContext context)
+        public RoomRepository(BattleshipContext context, GameLogicService gameLogicService)
         {
             _battleshipContext = context;
+            this._gameLogicService = gameLogicService;
         }
         public async Task<Room> GetRoomById(int roomId)
         {
@@ -19,7 +22,22 @@ namespace Battleship_State_Tracker.Data
 
         public async Task<Room> CreateRoom(Player roomCreator)
         {
-            var newRoom = new Room { PlayerList = new List<Player> { roomCreator }, RoomStatus = new RoomStatus() { Status = RoomStatusTypes.Open.ToString() } };
+            var newRoom = new Room
+            {
+                PlayerList = new List<Player> { roomCreator },
+                RoomStatus = new RoomStatus() { Status = RoomStatusTypes.Open.ToString() },
+                Board = new Board
+                {
+                    PlayersArsenal = new List<PlayerArsenal>
+                    {
+                        new PlayerArsenal() {
+                        Player = roomCreator,
+                        Boats = _gameLogicService.CreateStandardFloat()
+        }
+                    }
+                }
+            };
+
             await _battleshipContext.Rooms.AddAsync(newRoom);
             await _battleshipContext.SaveChangesAsync();
             return newRoom;
@@ -50,6 +68,11 @@ namespace Battleship_State_Tracker.Data
             }
 
             room.PlayerList.Add(player);
+            room.Board.PlayersArsenal.Add(new PlayerArsenal
+            {
+                Player = player,
+                Boats = _gameLogicService.CreateStandardFloat()
+            });
             await _battleshipContext.SaveChangesAsync();
 
             return room;
