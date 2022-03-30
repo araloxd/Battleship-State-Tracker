@@ -1,15 +1,17 @@
 {
-  "Information": [
-    "This file provides default values for the deployment wizard inside Visual Studio and the AWS Lambda commands added to the .NET Core CLI.",
-    "To learn more about the Lambda commands with the .NET Core CLI execute the following command at the command line in the project root directory.",
-    "dotnet lambda help",
-    "All the command line options for the Lambda command can be specified in this file."
-  ],
-  "profile": "Gonz-Aws",
   "region": "us-east-1",
-  "configuration": "Release",
-  "function-runtime": "dotnet6",
+  "profile": "Gonz-Aws",
+  "configuration": "Debug",
+  "framework": "net6.0",
+  "function-name": "Battleship-try",
+  "package-type": "Zip",
+  "function-handler": "Battleship::AWSLambda1.Function::FunctionHandler",
   "function-memory-size": 256,
-  "function-timeout": 30,
-  "function-handler": "AWSLambda1::AWSLambda1.Function::FunctionHandler"
+  "function-role": "arn:aws:iam::972015800038:role/lambda_exec_Battleship-try",
+  "function-timeout": 10,
+  "function-runtime": "dotnet6",
+  "function-architecture": "x86_64",
+  "tracing-mode": "PassThrough",
+  "environment-variables": "",
+  "image-tag": ""
 }

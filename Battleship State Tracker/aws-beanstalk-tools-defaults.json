@@ -1,14 +1,21 @@
-
 {
-    "region" : "us-east-1",
-    "configuration" : "Debug",
-    "framework"     : "net6.0",
-    "self-contained" : true,
-    "application"    : "test-battleship",
-    "environment"    : "Testbattleship-env",
-    "app-path"       : "/",
-    "iis-website"    : "Default Web Site",
-    "enable-xray"    : false,
-    "enhanced-health-type" : "basic",
-    "additional-options"   : ""
+  "region": "us-east-1",
+  "configuration": "Debug",
+  "framework": "net6.0",
+  "self-contained": true,
+  "application": "Battleship",
+  "environment": "BattleshipStateTracker-dev",
+  "app-path": "/",
+  "iis-website": "Default Web Site",
+  "enable-xray": false,
+  "enhanced-health-type": "basic",
+  "additional-options": "\"aws:autoscaling:launchconfiguration,SecurityGroups\"=\"sg-07bb35f422b0159fc\";\"aws:ec2:vpc,Subnets\"=\"subnet-03920d0fa02976fcf\"",
+  "solution-stack": "64bit Amazon Linux 2 v2.2.11 running .NET Core",
+  "environment-type": "SingleInstance",
+  "cname": "battleshipstatetracker-dev",
+  "instance-type": "t3a.medium",
+  "key-pair": "",
+  "instance-profile": "aws-elasticbeanstalk-BattleshipStateTracker-dev",
+  "service-role": "aws-elasticbeanstalk-service-role",
+  "proxy-server": "nginx"
 }

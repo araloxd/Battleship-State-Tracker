@@ -5,6 +5,8 @@
 		<Nullable>enable</Nullable>
 		<ImplicitUsings>enable</ImplicitUsings>
 		<RootNamespace>Battleship_State_Tracker</RootNamespace>
+    <AssemblyName>Battleship</AssemblyName>
+    <UserSecretsId>658fd853-eb9c-415f-be95-7b21fc8986c5</UserSecretsId>
 	</PropertyGroup>
 
 	<ItemGroup>
@@ -12,6 +14,7 @@
 		<PackageReference Include="Amazon.Lambda.Serialization.Json" Version="2.0.0" />
 		<PackageReference Include="Amazon.Lambda.Serialization.SystemTextJson" Version="2.3.0" />
 		<PackageReference Include="AWSSDK.Core" Version="3.7.10.1" />
+		<PackageReference Include="Microsoft.Bcl.AsyncInterfaces" Version="6.0.0" />
 		<PackageReference Include="Microsoft.EntityFrameworkCore" Version="6.0.3" />
 		<PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="6.0.3">
 			<PrivateAssets>all</PrivateAssets>
